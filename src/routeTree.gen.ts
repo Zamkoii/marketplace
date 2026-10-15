@@ -11,6 +11,10 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CariRouteImport } from './routes/cari'
+import { Route as CheckoutRouteImport } from './routes/checkout'
+import { Route as KeranjangRouteImport } from './routes/keranjang'
+import { Route as MasukRouteImport } from './routes/masuk'
+import { Route as BayarIdRouteImport } from './routes/bayar.$id'
 import { Route as ProdukIdRouteImport } from './routes/produk.$id'
 import { Route as TokoSlugRouteImport } from './routes/toko.$slug'
 
@@ -22,6 +26,26 @@ const IndexRoute = IndexRouteImport.update({
 const CariRoute = CariRouteImport.update({
   id: '/cari',
   path: '/cari',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CheckoutRoute = CheckoutRouteImport.update({
+  id: '/checkout',
+  path: '/checkout',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KeranjangRoute = KeranjangRouteImport.update({
+  id: '/keranjang',
+  path: '/keranjang',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MasukRoute = MasukRouteImport.update({
+  id: '/masuk',
+  path: '/masuk',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BayarIdRoute = BayarIdRouteImport.update({
+  id: '/bayar/$id',
+  path: '/bayar/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProdukIdRoute = ProdukIdRouteImport.update({
@@ -38,12 +62,20 @@ const TokoSlugRoute = TokoSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/cari': typeof CariRoute
+  '/checkout': typeof CheckoutRoute
+  '/keranjang': typeof KeranjangRoute
+  '/masuk': typeof MasukRoute
+  '/bayar/$id': typeof BayarIdRoute
   '/produk/$id': typeof ProdukIdRoute
   '/toko/$slug': typeof TokoSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/cari': typeof CariRoute
+  '/checkout': typeof CheckoutRoute
+  '/keranjang': typeof KeranjangRoute
+  '/masuk': typeof MasukRoute
+  '/bayar/$id': typeof BayarIdRoute
   '/produk/$id': typeof ProdukIdRoute
   '/toko/$slug': typeof TokoSlugRoute
 }
@@ -51,20 +83,53 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/cari': typeof CariRoute
+  '/checkout': typeof CheckoutRoute
+  '/keranjang': typeof KeranjangRoute
+  '/masuk': typeof MasukRoute
+  '/bayar/$id': typeof BayarIdRoute
   '/produk/$id': typeof ProdukIdRoute
   '/toko/$slug': typeof TokoSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/cari' | '/produk/$id' | '/toko/$slug'
+  fullPaths:
+    | '/'
+    | '/cari'
+    | '/checkout'
+    | '/keranjang'
+    | '/masuk'
+    | '/bayar/$id'
+    | '/produk/$id'
+    | '/toko/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/cari' | '/produk/$id' | '/toko/$slug'
-  id: '__root__' | '/' | '/cari' | '/produk/$id' | '/toko/$slug'
+  to:
+    | '/'
+    | '/cari'
+    | '/checkout'
+    | '/keranjang'
+    | '/masuk'
+    | '/bayar/$id'
+    | '/produk/$id'
+    | '/toko/$slug'
+  id:
+    | '__root__'
+    | '/'
+    | '/cari'
+    | '/checkout'
+    | '/keranjang'
+    | '/masuk'
+    | '/bayar/$id'
+    | '/produk/$id'
+    | '/toko/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CariRoute: typeof CariRoute
+  CheckoutRoute: typeof CheckoutRoute
+  KeranjangRoute: typeof KeranjangRoute
+  MasukRoute: typeof MasukRoute
+  BayarIdRoute: typeof BayarIdRoute
   ProdukIdRoute: typeof ProdukIdRoute
   TokoSlugRoute: typeof TokoSlugRoute
 }
@@ -83,6 +148,34 @@ declare module '@tanstack/react-router' {
       path: '/cari'
       fullPath: '/cari'
       preLoaderRoute: typeof CariRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/checkout': {
+      id: '/checkout'
+      path: '/checkout'
+      fullPath: '/checkout'
+      preLoaderRoute: typeof CheckoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/keranjang': {
+      id: '/keranjang'
+      path: '/keranjang'
+      fullPath: '/keranjang'
+      preLoaderRoute: typeof KeranjangRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/masuk': {
+      id: '/masuk'
+      path: '/masuk'
+      fullPath: '/masuk'
+      preLoaderRoute: typeof MasukRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/bayar/$id': {
+      id: '/bayar/$id'
+      path: '/bayar/$id'
+      fullPath: '/bayar/$id'
+      preLoaderRoute: typeof BayarIdRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/produk/$id': {
@@ -105,6 +198,10 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CariRoute: CariRoute,
+  CheckoutRoute: CheckoutRoute,
+  KeranjangRoute: KeranjangRoute,
+  MasukRoute: MasukRoute,
+  BayarIdRoute: BayarIdRoute,
   ProdukIdRoute: ProdukIdRoute,
   TokoSlugRoute: TokoSlugRoute,
 }
