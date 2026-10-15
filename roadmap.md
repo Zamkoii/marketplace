@@ -1,0 +1,11 @@
+# Roadmap Marketplace
+- [x] Tahap 1: Analisis, arsitektur, ERD, route, keamanan (docs/BLUEPRINT.md)
+- [ ] Tahap 2: Aktifkan Lovable Cloud, migrasi skema, RLS, seed demo, design system
+- [ ] Tahap 3: Auth, profil, role & otorisasi
+- [ ] Tahap 4: Dashboard admin & verifikasi toko
+- [ ] Tahap 5: Seller Center & CRUD produk
+- [ ] Tahap 6: Storefront (home, cari, kategori, detail, toko)
+- [ ] Tahap 7: Keranjang & checkout multi-toko
+- [ ] Tahap 8: Pembayaran (Midtrans/Xendit), komisi, ledger, pengiriman
+- [ ] Tahap 9: Notifikasi, ulasan, promo, chat
+- [ ] Tahap 10: Testing, security review, deployment
