@@ -10,33 +10,315 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AkunRouteImport } from './routes/akun'
+import { Route as BantuanRouteImport } from './routes/bantuan'
+import { Route as BukaTokoRouteImport } from './routes/buka-toko'
+import { Route as CariRouteImport } from './routes/cari'
+import { Route as CheckoutRouteImport } from './routes/checkout'
+import { Route as KebijakanRouteImport } from './routes/kebijakan'
+import { Route as KeranjangRouteImport } from './routes/keranjang'
+import { Route as MasukRouteImport } from './routes/masuk'
+import { Route as NotifikasiRouteImport } from './routes/notifikasi'
+import { Route as SellerRouteImport } from './routes/seller'
+import { Route as WishlistRouteImport } from './routes/wishlist'
+import { Route as BayarIdRouteImport } from './routes/bayar.$id'
+import { Route as PesananIndexRouteImport } from './routes/pesanan.index'
+import { Route as PesananIdRouteImport } from './routes/pesanan.$id'
+import { Route as ProdukIdRouteImport } from './routes/produk.$id'
+import { Route as SellerIndexRouteImport } from './routes/seller.index'
+import { Route as SellerPengirimanRouteImport } from './routes/seller.pengiriman'
+import { Route as SellerPesananRouteImport } from './routes/seller.pesanan'
+import { Route as TokoSlugRouteImport } from './routes/toko.$slug'
+import { Route as SellerProdukIndexRouteImport } from './routes/seller.produk.index'
+import { Route as SellerProdukIdRouteImport } from './routes/seller.produk.$id'
+import { Route as SellerProdukBaruRouteImport } from './routes/seller.produk.baru'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AkunRoute = AkunRouteImport.update({
+  id: '/akun',
+  path: '/akun',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BantuanRoute = BantuanRouteImport.update({
+  id: '/bantuan',
+  path: '/bantuan',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BukaTokoRoute = BukaTokoRouteImport.update({
+  id: '/buka-toko',
+  path: '/buka-toko',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CariRoute = CariRouteImport.update({
+  id: '/cari',
+  path: '/cari',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CheckoutRoute = CheckoutRouteImport.update({
+  id: '/checkout',
+  path: '/checkout',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KebijakanRoute = KebijakanRouteImport.update({
+  id: '/kebijakan',
+  path: '/kebijakan',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KeranjangRoute = KeranjangRouteImport.update({
+  id: '/keranjang',
+  path: '/keranjang',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MasukRoute = MasukRouteImport.update({
+  id: '/masuk',
+  path: '/masuk',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NotifikasiRoute = NotifikasiRouteImport.update({
+  id: '/notifikasi',
+  path: '/notifikasi',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SellerRoute = SellerRouteImport.update({
+  id: '/seller',
+  path: '/seller',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WishlistRoute = WishlistRouteImport.update({
+  id: '/wishlist',
+  path: '/wishlist',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BayarIdRoute = BayarIdRouteImport.update({
+  id: '/bayar/$id',
+  path: '/bayar/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PesananIndexRoute = PesananIndexRouteImport.update({
+  id: '/pesanan/',
+  path: '/pesanan/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PesananIdRoute = PesananIdRouteImport.update({
+  id: '/pesanan/$id',
+  path: '/pesanan/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProdukIdRoute = ProdukIdRouteImport.update({
+  id: '/produk/$id',
+  path: '/produk/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SellerIndexRoute = SellerIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => SellerRoute,
+} as any)
+const SellerPengirimanRoute = SellerPengirimanRouteImport.update({
+  id: '/pengiriman',
+  path: '/pengiriman',
+  getParentRoute: () => SellerRoute,
+} as any)
+const SellerPesananRoute = SellerPesananRouteImport.update({
+  id: '/pesanan',
+  path: '/pesanan',
+  getParentRoute: () => SellerRoute,
+} as any)
+const TokoSlugRoute = TokoSlugRouteImport.update({
+  id: '/toko/$slug',
+  path: '/toko/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SellerProdukIndexRoute = SellerProdukIndexRouteImport.update({
+  id: '/produk/',
+  path: '/produk/',
+  getParentRoute: () => SellerRoute,
+} as any)
+const SellerProdukIdRoute = SellerProdukIdRouteImport.update({
+  id: '/produk/$id',
+  path: '/produk/$id',
+  getParentRoute: () => SellerRoute,
+} as any)
+const SellerProdukBaruRoute = SellerProdukBaruRouteImport.update({
+  id: '/produk/baru',
+  path: '/produk/baru',
+  getParentRoute: () => SellerRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/akun': typeof AkunRoute
+  '/bantuan': typeof BantuanRoute
+  '/buka-toko': typeof BukaTokoRoute
+  '/cari': typeof CariRoute
+  '/checkout': typeof CheckoutRoute
+  '/kebijakan': typeof KebijakanRoute
+  '/keranjang': typeof KeranjangRoute
+  '/masuk': typeof MasukRoute
+  '/notifikasi': typeof NotifikasiRoute
+  '/seller': typeof SellerRouteWithChildren
+  '/wishlist': typeof WishlistRoute
+  '/bayar/$id': typeof BayarIdRoute
+  '/pesanan/$id': typeof PesananIdRoute
+  '/produk/$id': typeof ProdukIdRoute
+  '/seller/pengiriman': typeof SellerPengirimanRoute
+  '/seller/pesanan': typeof SellerPesananRoute
+  '/toko/$slug': typeof TokoSlugRoute
+  '/pesanan/': typeof PesananIndexRoute
+  '/seller/': typeof SellerIndexRoute
+  '/seller/produk/$id': typeof SellerProdukIdRoute
+  '/seller/produk/baru': typeof SellerProdukBaruRoute
+  '/seller/produk/': typeof SellerProdukIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/akun': typeof AkunRoute
+  '/bantuan': typeof BantuanRoute
+  '/buka-toko': typeof BukaTokoRoute
+  '/cari': typeof CariRoute
+  '/checkout': typeof CheckoutRoute
+  '/kebijakan': typeof KebijakanRoute
+  '/keranjang': typeof KeranjangRoute
+  '/masuk': typeof MasukRoute
+  '/notifikasi': typeof NotifikasiRoute
+  '/wishlist': typeof WishlistRoute
+  '/bayar/$id': typeof BayarIdRoute
+  '/pesanan/$id': typeof PesananIdRoute
+  '/produk/$id': typeof ProdukIdRoute
+  '/seller/pengiriman': typeof SellerPengirimanRoute
+  '/seller/pesanan': typeof SellerPesananRoute
+  '/toko/$slug': typeof TokoSlugRoute
+  '/pesanan': typeof PesananIndexRoute
+  '/seller': typeof SellerIndexRoute
+  '/seller/produk/$id': typeof SellerProdukIdRoute
+  '/seller/produk/baru': typeof SellerProdukBaruRoute
+  '/seller/produk': typeof SellerProdukIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/akun': typeof AkunRoute
+  '/bantuan': typeof BantuanRoute
+  '/buka-toko': typeof BukaTokoRoute
+  '/cari': typeof CariRoute
+  '/checkout': typeof CheckoutRoute
+  '/kebijakan': typeof KebijakanRoute
+  '/keranjang': typeof KeranjangRoute
+  '/masuk': typeof MasukRoute
+  '/notifikasi': typeof NotifikasiRoute
+  '/seller': typeof SellerRouteWithChildren
+  '/wishlist': typeof WishlistRoute
+  '/bayar/$id': typeof BayarIdRoute
+  '/pesanan/$id': typeof PesananIdRoute
+  '/produk/$id': typeof ProdukIdRoute
+  '/seller/pengiriman': typeof SellerPengirimanRoute
+  '/seller/pesanan': typeof SellerPesananRoute
+  '/toko/$slug': typeof TokoSlugRoute
+  '/pesanan/': typeof PesananIndexRoute
+  '/seller/': typeof SellerIndexRoute
+  '/seller/produk/$id': typeof SellerProdukIdRoute
+  '/seller/produk/baru': typeof SellerProdukBaruRoute
+  '/seller/produk/': typeof SellerProdukIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/akun'
+    | '/bantuan'
+    | '/buka-toko'
+    | '/cari'
+    | '/checkout'
+    | '/kebijakan'
+    | '/keranjang'
+    | '/masuk'
+    | '/notifikasi'
+    | '/seller'
+    | '/wishlist'
+    | '/bayar/$id'
+    | '/pesanan/$id'
+    | '/produk/$id'
+    | '/seller/pengiriman'
+    | '/seller/pesanan'
+    | '/toko/$slug'
+    | '/pesanan/'
+    | '/seller/'
+    | '/seller/produk/$id'
+    | '/seller/produk/baru'
+    | '/seller/produk/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/akun'
+    | '/bantuan'
+    | '/buka-toko'
+    | '/cari'
+    | '/checkout'
+    | '/kebijakan'
+    | '/keranjang'
+    | '/masuk'
+    | '/notifikasi'
+    | '/wishlist'
+    | '/bayar/$id'
+    | '/pesanan/$id'
+    | '/produk/$id'
+    | '/seller/pengiriman'
+    | '/seller/pesanan'
+    | '/toko/$slug'
+    | '/pesanan'
+    | '/seller'
+    | '/seller/produk/$id'
+    | '/seller/produk/baru'
+    | '/seller/produk'
+  id:
+    | '__root__'
+    | '/'
+    | '/akun'
+    | '/bantuan'
+    | '/buka-toko'
+    | '/cari'
+    | '/checkout'
+    | '/kebijakan'
+    | '/keranjang'
+    | '/masuk'
+    | '/notifikasi'
+    | '/seller'
+    | '/wishlist'
+    | '/bayar/$id'
+    | '/pesanan/$id'
+    | '/produk/$id'
+    | '/seller/pengiriman'
+    | '/seller/pesanan'
+    | '/toko/$slug'
+    | '/pesanan/'
+    | '/seller/'
+    | '/seller/produk/$id'
+    | '/seller/produk/baru'
+    | '/seller/produk/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AkunRoute: typeof AkunRoute
+  BantuanRoute: typeof BantuanRoute
+  BukaTokoRoute: typeof BukaTokoRoute
+  CariRoute: typeof CariRoute
+  CheckoutRoute: typeof CheckoutRoute
+  KebijakanRoute: typeof KebijakanRoute
+  KeranjangRoute: typeof KeranjangRoute
+  MasukRoute: typeof MasukRoute
+  NotifikasiRoute: typeof NotifikasiRoute
+  SellerRoute: typeof SellerRouteWithChildren
+  WishlistRoute: typeof WishlistRoute
+  BayarIdRoute: typeof BayarIdRoute
+  PesananIdRoute: typeof PesananIdRoute
+  ProdukIdRoute: typeof ProdukIdRoute
+  TokoSlugRoute: typeof TokoSlugRoute
+  PesananIndexRoute: typeof PesananIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +330,202 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/akun': {
+      id: '/akun'
+      path: '/akun'
+      fullPath: '/akun'
+      preLoaderRoute: typeof AkunRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/bantuan': {
+      id: '/bantuan'
+      path: '/bantuan'
+      fullPath: '/bantuan'
+      preLoaderRoute: typeof BantuanRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/buka-toko': {
+      id: '/buka-toko'
+      path: '/buka-toko'
+      fullPath: '/buka-toko'
+      preLoaderRoute: typeof BukaTokoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cari': {
+      id: '/cari'
+      path: '/cari'
+      fullPath: '/cari'
+      preLoaderRoute: typeof CariRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/checkout': {
+      id: '/checkout'
+      path: '/checkout'
+      fullPath: '/checkout'
+      preLoaderRoute: typeof CheckoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kebijakan': {
+      id: '/kebijakan'
+      path: '/kebijakan'
+      fullPath: '/kebijakan'
+      preLoaderRoute: typeof KebijakanRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/keranjang': {
+      id: '/keranjang'
+      path: '/keranjang'
+      fullPath: '/keranjang'
+      preLoaderRoute: typeof KeranjangRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/masuk': {
+      id: '/masuk'
+      path: '/masuk'
+      fullPath: '/masuk'
+      preLoaderRoute: typeof MasukRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/notifikasi': {
+      id: '/notifikasi'
+      path: '/notifikasi'
+      fullPath: '/notifikasi'
+      preLoaderRoute: typeof NotifikasiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/seller': {
+      id: '/seller'
+      path: '/seller'
+      fullPath: '/seller'
+      preLoaderRoute: typeof SellerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/wishlist': {
+      id: '/wishlist'
+      path: '/wishlist'
+      fullPath: '/wishlist'
+      preLoaderRoute: typeof WishlistRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/bayar/$id': {
+      id: '/bayar/$id'
+      path: '/bayar/$id'
+      fullPath: '/bayar/$id'
+      preLoaderRoute: typeof BayarIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pesanan/': {
+      id: '/pesanan/'
+      path: '/pesanan'
+      fullPath: '/pesanan/'
+      preLoaderRoute: typeof PesananIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pesanan/$id': {
+      id: '/pesanan/$id'
+      path: '/pesanan/$id'
+      fullPath: '/pesanan/$id'
+      preLoaderRoute: typeof PesananIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/produk/$id': {
+      id: '/produk/$id'
+      path: '/produk/$id'
+      fullPath: '/produk/$id'
+      preLoaderRoute: typeof ProdukIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/seller/': {
+      id: '/seller/'
+      path: '/'
+      fullPath: '/seller/'
+      preLoaderRoute: typeof SellerIndexRouteImport
+      parentRoute: typeof SellerRoute
+    }
+    '/seller/pengiriman': {
+      id: '/seller/pengiriman'
+      path: '/pengiriman'
+      fullPath: '/seller/pengiriman'
+      preLoaderRoute: typeof SellerPengirimanRouteImport
+      parentRoute: typeof SellerRoute
+    }
+    '/seller/pesanan': {
+      id: '/seller/pesanan'
+      path: '/pesanan'
+      fullPath: '/seller/pesanan'
+      preLoaderRoute: typeof SellerPesananRouteImport
+      parentRoute: typeof SellerRoute
+    }
+    '/toko/$slug': {
+      id: '/toko/$slug'
+      path: '/toko/$slug'
+      fullPath: '/toko/$slug'
+      preLoaderRoute: typeof TokoSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/seller/produk/': {
+      id: '/seller/produk/'
+      path: '/produk'
+      fullPath: '/seller/produk/'
+      preLoaderRoute: typeof SellerProdukIndexRouteImport
+      parentRoute: typeof SellerRoute
+    }
+    '/seller/produk/$id': {
+      id: '/seller/produk/$id'
+      path: '/produk/$id'
+      fullPath: '/seller/produk/$id'
+      preLoaderRoute: typeof SellerProdukIdRouteImport
+      parentRoute: typeof SellerRoute
+    }
+    '/seller/produk/baru': {
+      id: '/seller/produk/baru'
+      path: '/produk/baru'
+      fullPath: '/seller/produk/baru'
+      preLoaderRoute: typeof SellerProdukBaruRouteImport
+      parentRoute: typeof SellerRoute
+    }
   }
 }
 
+interface SellerRouteChildren {
+  SellerPengirimanRoute: typeof SellerPengirimanRoute
+  SellerPesananRoute: typeof SellerPesananRoute
+  SellerIndexRoute: typeof SellerIndexRoute
+  SellerProdukIdRoute: typeof SellerProdukIdRoute
+  SellerProdukBaruRoute: typeof SellerProdukBaruRoute
+  SellerProdukIndexRoute: typeof SellerProdukIndexRoute
+}
+
+const SellerRouteChildren: SellerRouteChildren = {
+  SellerPengirimanRoute: SellerPengirimanRoute,
+  SellerPesananRoute: SellerPesananRoute,
+  SellerIndexRoute: SellerIndexRoute,
+  SellerProdukIdRoute: SellerProdukIdRoute,
+  SellerProdukBaruRoute: SellerProdukBaruRoute,
+  SellerProdukIndexRoute: SellerProdukIndexRoute,
+}
+
+const SellerRouteWithChildren =
+  SellerRoute._addFileChildren(SellerRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AkunRoute: AkunRoute,
+  BantuanRoute: BantuanRoute,
+  BukaTokoRoute: BukaTokoRoute,
+  CariRoute: CariRoute,
+  CheckoutRoute: CheckoutRoute,
+  KebijakanRoute: KebijakanRoute,
+  KeranjangRoute: KeranjangRoute,
+  MasukRoute: MasukRoute,
+  NotifikasiRoute: NotifikasiRoute,
+  SellerRoute: SellerRouteWithChildren,
+  WishlistRoute: WishlistRoute,
+  BayarIdRoute: BayarIdRoute,
+  PesananIdRoute: PesananIdRoute,
+  ProdukIdRoute: ProdukIdRoute,
+  TokoSlugRoute: TokoSlugRoute,
+  PesananIndexRoute: PesananIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
