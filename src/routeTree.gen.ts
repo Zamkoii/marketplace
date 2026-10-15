@@ -19,11 +19,13 @@ import { Route as KebijakanRouteImport } from './routes/kebijakan'
 import { Route as KeranjangRouteImport } from './routes/keranjang'
 import { Route as MasukRouteImport } from './routes/masuk'
 import { Route as NotifikasiRouteImport } from './routes/notifikasi'
+import { Route as SellerRouteImport } from './routes/seller'
 import { Route as WishlistRouteImport } from './routes/wishlist'
 import { Route as BayarIdRouteImport } from './routes/bayar.$id'
 import { Route as PesananIndexRouteImport } from './routes/pesanan.index'
 import { Route as PesananIdRouteImport } from './routes/pesanan.$id'
 import { Route as ProdukIdRouteImport } from './routes/produk.$id'
+import { Route as SellerIndexRouteImport } from './routes/seller.index'
 import { Route as TokoSlugRouteImport } from './routes/toko.$slug'
 
 const IndexRoute = IndexRouteImport.update({
@@ -76,6 +78,11 @@ const NotifikasiRoute = NotifikasiRouteImport.update({
   path: '/notifikasi',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SellerRoute = SellerRouteImport.update({
+  id: '/seller',
+  path: '/seller',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const WishlistRoute = WishlistRouteImport.update({
   id: '/wishlist',
   path: '/wishlist',
@@ -101,6 +108,11 @@ const ProdukIdRoute = ProdukIdRouteImport.update({
   path: '/produk/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SellerIndexRoute = SellerIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => SellerRoute,
+} as any)
 const TokoSlugRoute = TokoSlugRouteImport.update({
   id: '/toko/$slug',
   path: '/toko/$slug',
@@ -118,12 +130,14 @@ export interface FileRoutesByFullPath {
   '/keranjang': typeof KeranjangRoute
   '/masuk': typeof MasukRoute
   '/notifikasi': typeof NotifikasiRoute
+  '/seller': typeof SellerRouteWithChildren
   '/wishlist': typeof WishlistRoute
   '/bayar/$id': typeof BayarIdRoute
   '/pesanan/$id': typeof PesananIdRoute
   '/produk/$id': typeof ProdukIdRoute
   '/toko/$slug': typeof TokoSlugRoute
   '/pesanan/': typeof PesananIndexRoute
+  '/seller/': typeof SellerIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -142,6 +156,7 @@ export interface FileRoutesByTo {
   '/produk/$id': typeof ProdukIdRoute
   '/toko/$slug': typeof TokoSlugRoute
   '/pesanan': typeof PesananIndexRoute
+  '/seller': typeof SellerIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -155,12 +170,14 @@ export interface FileRoutesById {
   '/keranjang': typeof KeranjangRoute
   '/masuk': typeof MasukRoute
   '/notifikasi': typeof NotifikasiRoute
+  '/seller': typeof SellerRouteWithChildren
   '/wishlist': typeof WishlistRoute
   '/bayar/$id': typeof BayarIdRoute
   '/pesanan/$id': typeof PesananIdRoute
   '/produk/$id': typeof ProdukIdRoute
   '/toko/$slug': typeof TokoSlugRoute
   '/pesanan/': typeof PesananIndexRoute
+  '/seller/': typeof SellerIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -175,12 +192,14 @@ export interface FileRouteTypes {
     | '/keranjang'
     | '/masuk'
     | '/notifikasi'
+    | '/seller'
     | '/wishlist'
     | '/bayar/$id'
     | '/pesanan/$id'
     | '/produk/$id'
     | '/toko/$slug'
     | '/pesanan/'
+    | '/seller/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -199,6 +218,7 @@ export interface FileRouteTypes {
     | '/produk/$id'
     | '/toko/$slug'
     | '/pesanan'
+    | '/seller'
   id:
     | '__root__'
     | '/'
@@ -211,12 +231,14 @@ export interface FileRouteTypes {
     | '/keranjang'
     | '/masuk'
     | '/notifikasi'
+    | '/seller'
     | '/wishlist'
     | '/bayar/$id'
     | '/pesanan/$id'
     | '/produk/$id'
     | '/toko/$slug'
     | '/pesanan/'
+    | '/seller/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -230,6 +252,7 @@ export interface RootRouteChildren {
   KeranjangRoute: typeof KeranjangRoute
   MasukRoute: typeof MasukRoute
   NotifikasiRoute: typeof NotifikasiRoute
+  SellerRoute: typeof SellerRouteWithChildren
   WishlistRoute: typeof WishlistRoute
   BayarIdRoute: typeof BayarIdRoute
   PesananIdRoute: typeof PesananIdRoute
@@ -310,6 +333,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof NotifikasiRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/seller': {
+      id: '/seller'
+      path: '/seller'
+      fullPath: '/seller'
+      preLoaderRoute: typeof SellerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/wishlist': {
       id: '/wishlist'
       path: '/wishlist'
@@ -345,6 +375,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProdukIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/seller/': {
+      id: '/seller/'
+      path: '/'
+      fullPath: '/seller/'
+      preLoaderRoute: typeof SellerIndexRouteImport
+      parentRoute: typeof SellerRoute
+    }
     '/toko/$slug': {
       id: '/toko/$slug'
       path: '/toko/$slug'
@@ -354,6 +391,17 @@ declare module '@tanstack/react-router' {
     }
   }
 }
+
+interface SellerRouteChildren {
+  SellerIndexRoute: typeof SellerIndexRoute
+}
+
+const SellerRouteChildren: SellerRouteChildren = {
+  SellerIndexRoute: SellerIndexRoute,
+}
+
+const SellerRouteWithChildren =
+  SellerRoute._addFileChildren(SellerRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
@@ -366,6 +414,7 @@ const rootRouteChildren: RootRouteChildren = {
   KeranjangRoute: KeranjangRoute,
   MasukRoute: MasukRoute,
   NotifikasiRoute: NotifikasiRoute,
+  SellerRoute: SellerRouteWithChildren,
   WishlistRoute: WishlistRoute,
   BayarIdRoute: BayarIdRoute,
   PesananIdRoute: PesananIdRoute,
