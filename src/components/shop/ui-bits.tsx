@@ -1,6 +1,6 @@
 import * as Icons from "lucide-react";
 import { Link } from "@tanstack/react-router";
-import { Heart, Star } from "lucide-react";
+import { Star } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { formatRupiah } from "@/lib/domain/money";
 import { STATUS_LABEL, type OrderStatus } from "@/lib/domain/order-status";
@@ -70,8 +70,3 @@ export function Empty({ icon: I = Icons.PackageOpen, title, children }: { icon?:
   );
 }
 
-export function WishButton({ productId }: { productId: string }) {
-  const uid = useDB((d) => d.currentUserId);
-  const on = useDB((d) => (uid ? d.wishlist[uid]?.includes(productId) : false));
-  return { on, Heart };
-}
