@@ -27,7 +27,7 @@ function ProductPage() {
   const [qty, setQty] = useState(1);
 
   if (!product || !store) return <SiteShell><Empty title="Produk tidak ditemukan" /></SiteShell>;
-  const variant = product.variants.find((v) => v.id === vid) ?? product.variants.find((v) => v.stock > 0) ?? product.variants[0];
+  const variant = product.variants.find((v) => v.id === vid) ?? product.variants.find((v) => v.stock > 0) ?? product.variants[0]!;
   const off = product.discountPrice ? Math.round((1 - product.discountPrice / product.basePrice) * 100) : 0;
   const unavailable = !product.active || store.status !== "active";
 
