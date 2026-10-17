@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AdminRouteImport } from './routes/admin'
 import { Route as AkunRouteImport } from './routes/akun'
 import { Route as BantuanRouteImport } from './routes/bantuan'
 import { Route as BukaTokoRouteImport } from './routes/buka-toko'
@@ -26,8 +27,14 @@ import { Route as PesananIndexRouteImport } from './routes/pesanan.index'
 import { Route as PesananIdRouteImport } from './routes/pesanan.$id'
 import { Route as ProdukIdRouteImport } from './routes/produk.$id'
 import { Route as SellerIndexRouteImport } from './routes/seller.index'
+import { Route as SellerAnalitikRouteImport } from './routes/seller.analitik'
+import { Route as SellerKeuanganRouteImport } from './routes/seller.keuangan'
+import { Route as SellerPelangganRouteImport } from './routes/seller.pelanggan'
+import { Route as SellerPengaturanRouteImport } from './routes/seller.pengaturan'
 import { Route as SellerPengirimanRouteImport } from './routes/seller.pengiriman'
 import { Route as SellerPesananRouteImport } from './routes/seller.pesanan'
+import { Route as SellerPromoRouteImport } from './routes/seller.promo'
+import { Route as SellerUlasanRouteImport } from './routes/seller.ulasan'
 import { Route as TokoSlugRouteImport } from './routes/toko.$slug'
 import { Route as SellerProdukIndexRouteImport } from './routes/seller.produk.index'
 import { Route as SellerProdukIdRouteImport } from './routes/seller.produk.$id'
@@ -36,6 +43,11 @@ import { Route as SellerProdukBaruRouteImport } from './routes/seller.produk.bar
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AkunRoute = AkunRouteImport.update({
@@ -118,6 +130,26 @@ const SellerIndexRoute = SellerIndexRouteImport.update({
   path: '/',
   getParentRoute: () => SellerRoute,
 } as any)
+const SellerAnalitikRoute = SellerAnalitikRouteImport.update({
+  id: '/analitik',
+  path: '/analitik',
+  getParentRoute: () => SellerRoute,
+} as any)
+const SellerKeuanganRoute = SellerKeuanganRouteImport.update({
+  id: '/keuangan',
+  path: '/keuangan',
+  getParentRoute: () => SellerRoute,
+} as any)
+const SellerPelangganRoute = SellerPelangganRouteImport.update({
+  id: '/pelanggan',
+  path: '/pelanggan',
+  getParentRoute: () => SellerRoute,
+} as any)
+const SellerPengaturanRoute = SellerPengaturanRouteImport.update({
+  id: '/pengaturan',
+  path: '/pengaturan',
+  getParentRoute: () => SellerRoute,
+} as any)
 const SellerPengirimanRoute = SellerPengirimanRouteImport.update({
   id: '/pengiriman',
   path: '/pengiriman',
@@ -126,6 +158,16 @@ const SellerPengirimanRoute = SellerPengirimanRouteImport.update({
 const SellerPesananRoute = SellerPesananRouteImport.update({
   id: '/pesanan',
   path: '/pesanan',
+  getParentRoute: () => SellerRoute,
+} as any)
+const SellerPromoRoute = SellerPromoRouteImport.update({
+  id: '/promo',
+  path: '/promo',
+  getParentRoute: () => SellerRoute,
+} as any)
+const SellerUlasanRoute = SellerUlasanRouteImport.update({
+  id: '/ulasan',
+  path: '/ulasan',
   getParentRoute: () => SellerRoute,
 } as any)
 const TokoSlugRoute = TokoSlugRouteImport.update({
@@ -151,6 +193,7 @@ const SellerProdukBaruRoute = SellerProdukBaruRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
   '/akun': typeof AkunRoute
   '/bantuan': typeof BantuanRoute
   '/buka-toko': typeof BukaTokoRoute
@@ -165,8 +208,14 @@ export interface FileRoutesByFullPath {
   '/bayar/$id': typeof BayarIdRoute
   '/pesanan/$id': typeof PesananIdRoute
   '/produk/$id': typeof ProdukIdRoute
+  '/seller/analitik': typeof SellerAnalitikRoute
+  '/seller/keuangan': typeof SellerKeuanganRoute
+  '/seller/pelanggan': typeof SellerPelangganRoute
+  '/seller/pengaturan': typeof SellerPengaturanRoute
   '/seller/pengiriman': typeof SellerPengirimanRoute
   '/seller/pesanan': typeof SellerPesananRoute
+  '/seller/promo': typeof SellerPromoRoute
+  '/seller/ulasan': typeof SellerUlasanRoute
   '/toko/$slug': typeof TokoSlugRoute
   '/pesanan/': typeof PesananIndexRoute
   '/seller/': typeof SellerIndexRoute
@@ -176,6 +225,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
   '/akun': typeof AkunRoute
   '/bantuan': typeof BantuanRoute
   '/buka-toko': typeof BukaTokoRoute
@@ -189,8 +239,14 @@ export interface FileRoutesByTo {
   '/bayar/$id': typeof BayarIdRoute
   '/pesanan/$id': typeof PesananIdRoute
   '/produk/$id': typeof ProdukIdRoute
+  '/seller/analitik': typeof SellerAnalitikRoute
+  '/seller/keuangan': typeof SellerKeuanganRoute
+  '/seller/pelanggan': typeof SellerPelangganRoute
+  '/seller/pengaturan': typeof SellerPengaturanRoute
   '/seller/pengiriman': typeof SellerPengirimanRoute
   '/seller/pesanan': typeof SellerPesananRoute
+  '/seller/promo': typeof SellerPromoRoute
+  '/seller/ulasan': typeof SellerUlasanRoute
   '/toko/$slug': typeof TokoSlugRoute
   '/pesanan': typeof PesananIndexRoute
   '/seller': typeof SellerIndexRoute
@@ -201,6 +257,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
   '/akun': typeof AkunRoute
   '/bantuan': typeof BantuanRoute
   '/buka-toko': typeof BukaTokoRoute
@@ -215,8 +272,14 @@ export interface FileRoutesById {
   '/bayar/$id': typeof BayarIdRoute
   '/pesanan/$id': typeof PesananIdRoute
   '/produk/$id': typeof ProdukIdRoute
+  '/seller/analitik': typeof SellerAnalitikRoute
+  '/seller/keuangan': typeof SellerKeuanganRoute
+  '/seller/pelanggan': typeof SellerPelangganRoute
+  '/seller/pengaturan': typeof SellerPengaturanRoute
   '/seller/pengiriman': typeof SellerPengirimanRoute
   '/seller/pesanan': typeof SellerPesananRoute
+  '/seller/promo': typeof SellerPromoRoute
+  '/seller/ulasan': typeof SellerUlasanRoute
   '/toko/$slug': typeof TokoSlugRoute
   '/pesanan/': typeof PesananIndexRoute
   '/seller/': typeof SellerIndexRoute
@@ -228,6 +291,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/admin'
     | '/akun'
     | '/bantuan'
     | '/buka-toko'
@@ -242,8 +306,14 @@ export interface FileRouteTypes {
     | '/bayar/$id'
     | '/pesanan/$id'
     | '/produk/$id'
+    | '/seller/analitik'
+    | '/seller/keuangan'
+    | '/seller/pelanggan'
+    | '/seller/pengaturan'
     | '/seller/pengiriman'
     | '/seller/pesanan'
+    | '/seller/promo'
+    | '/seller/ulasan'
     | '/toko/$slug'
     | '/pesanan/'
     | '/seller/'
@@ -253,6 +323,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/admin'
     | '/akun'
     | '/bantuan'
     | '/buka-toko'
@@ -266,8 +337,14 @@ export interface FileRouteTypes {
     | '/bayar/$id'
     | '/pesanan/$id'
     | '/produk/$id'
+    | '/seller/analitik'
+    | '/seller/keuangan'
+    | '/seller/pelanggan'
+    | '/seller/pengaturan'
     | '/seller/pengiriman'
     | '/seller/pesanan'
+    | '/seller/promo'
+    | '/seller/ulasan'
     | '/toko/$slug'
     | '/pesanan'
     | '/seller'
@@ -277,6 +354,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/admin'
     | '/akun'
     | '/bantuan'
     | '/buka-toko'
@@ -291,8 +369,14 @@ export interface FileRouteTypes {
     | '/bayar/$id'
     | '/pesanan/$id'
     | '/produk/$id'
+    | '/seller/analitik'
+    | '/seller/keuangan'
+    | '/seller/pelanggan'
+    | '/seller/pengaturan'
     | '/seller/pengiriman'
     | '/seller/pesanan'
+    | '/seller/promo'
+    | '/seller/ulasan'
     | '/toko/$slug'
     | '/pesanan/'
     | '/seller/'
@@ -303,6 +387,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdminRoute: typeof AdminRoute
   AkunRoute: typeof AkunRoute
   BantuanRoute: typeof BantuanRoute
   BukaTokoRoute: typeof BukaTokoRoute
@@ -328,6 +413,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/akun': {
@@ -442,6 +534,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SellerIndexRouteImport
       parentRoute: typeof SellerRoute
     }
+    '/seller/analitik': {
+      id: '/seller/analitik'
+      path: '/analitik'
+      fullPath: '/seller/analitik'
+      preLoaderRoute: typeof SellerAnalitikRouteImport
+      parentRoute: typeof SellerRoute
+    }
+    '/seller/keuangan': {
+      id: '/seller/keuangan'
+      path: '/keuangan'
+      fullPath: '/seller/keuangan'
+      preLoaderRoute: typeof SellerKeuanganRouteImport
+      parentRoute: typeof SellerRoute
+    }
+    '/seller/pelanggan': {
+      id: '/seller/pelanggan'
+      path: '/pelanggan'
+      fullPath: '/seller/pelanggan'
+      preLoaderRoute: typeof SellerPelangganRouteImport
+      parentRoute: typeof SellerRoute
+    }
+    '/seller/pengaturan': {
+      id: '/seller/pengaturan'
+      path: '/pengaturan'
+      fullPath: '/seller/pengaturan'
+      preLoaderRoute: typeof SellerPengaturanRouteImport
+      parentRoute: typeof SellerRoute
+    }
     '/seller/pengiriman': {
       id: '/seller/pengiriman'
       path: '/pengiriman'
@@ -454,6 +574,20 @@ declare module '@tanstack/react-router' {
       path: '/pesanan'
       fullPath: '/seller/pesanan'
       preLoaderRoute: typeof SellerPesananRouteImport
+      parentRoute: typeof SellerRoute
+    }
+    '/seller/promo': {
+      id: '/seller/promo'
+      path: '/promo'
+      fullPath: '/seller/promo'
+      preLoaderRoute: typeof SellerPromoRouteImport
+      parentRoute: typeof SellerRoute
+    }
+    '/seller/ulasan': {
+      id: '/seller/ulasan'
+      path: '/ulasan'
+      fullPath: '/seller/ulasan'
+      preLoaderRoute: typeof SellerUlasanRouteImport
       parentRoute: typeof SellerRoute
     }
     '/toko/$slug': {
@@ -488,8 +622,14 @@ declare module '@tanstack/react-router' {
 }
 
 interface SellerRouteChildren {
+  SellerAnalitikRoute: typeof SellerAnalitikRoute
+  SellerKeuanganRoute: typeof SellerKeuanganRoute
+  SellerPelangganRoute: typeof SellerPelangganRoute
+  SellerPengaturanRoute: typeof SellerPengaturanRoute
   SellerPengirimanRoute: typeof SellerPengirimanRoute
   SellerPesananRoute: typeof SellerPesananRoute
+  SellerPromoRoute: typeof SellerPromoRoute
+  SellerUlasanRoute: typeof SellerUlasanRoute
   SellerIndexRoute: typeof SellerIndexRoute
   SellerProdukIdRoute: typeof SellerProdukIdRoute
   SellerProdukBaruRoute: typeof SellerProdukBaruRoute
@@ -497,8 +637,14 @@ interface SellerRouteChildren {
 }
 
 const SellerRouteChildren: SellerRouteChildren = {
+  SellerAnalitikRoute: SellerAnalitikRoute,
+  SellerKeuanganRoute: SellerKeuanganRoute,
+  SellerPelangganRoute: SellerPelangganRoute,
+  SellerPengaturanRoute: SellerPengaturanRoute,
   SellerPengirimanRoute: SellerPengirimanRoute,
   SellerPesananRoute: SellerPesananRoute,
+  SellerPromoRoute: SellerPromoRoute,
+  SellerUlasanRoute: SellerUlasanRoute,
   SellerIndexRoute: SellerIndexRoute,
   SellerProdukIdRoute: SellerProdukIdRoute,
   SellerProdukBaruRoute: SellerProdukBaruRoute,
@@ -510,6 +656,7 @@ const SellerRouteWithChildren =
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdminRoute: AdminRoute,
   AkunRoute: AkunRoute,
   BantuanRoute: BantuanRoute,
   BukaTokoRoute: BukaTokoRoute,
