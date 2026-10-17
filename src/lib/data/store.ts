@@ -269,7 +269,7 @@ export const actions = {
       Object.assign(s, patch);
     });
   },
-  saveProduct(p: Omit<Product, "storeId" | "createdAt" | "sold" | "rating" | "reviewCount"> & { id?: string }) {
+  saveProduct(p: Omit<Product, "id" | "storeId" | "createdAt" | "sold" | "rating" | "reviewCount"> & { id?: string }) {
     mutate((d) => {
       const u = requireUser(d, "seller");
       if (p.discountPrice != null && p.discountPrice >= p.basePrice) throw new Error("Harga diskon harus lebih kecil dari harga jual");
