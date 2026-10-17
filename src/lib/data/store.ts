@@ -34,12 +34,14 @@ function mutate(fn: (d: DB) => void) {
   commit(draft);
 }
 
+// Subscribe to the whole state object (stable reference between commits) and
+// apply the selector during render. Returning selector results directly from
+// getSnapshot would create new arrays every call and loop forever.
+const subscribe = (l: () => void) => { listeners.add(l); return () => { listeners.delete(l); }; };
+const getSnapshot = () => { load(); return state; };
+const getServerSnapshot = () => seed;
 export function useDB<T>(sel: (d: DB) => T): T {
-  return useSyncExternalStore(
-    (l) => { listeners.add(l); return () => listeners.delete(l); },
-    () => { load(); return sel(state); },
-    () => sel(seed),
-  );
+  return sel(useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot));
 }
 export function getDB() { load(); return state; }
 
