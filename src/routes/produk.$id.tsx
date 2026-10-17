@@ -32,7 +32,7 @@ function ProductPage() {
   const unavailable = !product.active || store.status !== "active";
 
   const add = (buy: boolean) => {
-    if (!uid) return navigate({ to: "/masuk" });
+    if (!uid) { navigate({ to: "/masuk" }); return; }
     if (run(() => actions.addToCart(product.id, variant.id, qty), buy ? undefined : "Ditambahkan ke keranjang") && buy) navigate({ to: "/keranjang" });
   };
 

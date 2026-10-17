@@ -38,9 +38,9 @@ export function ProductForm({ product }: { product?: Product }) {
   const submit = form.handleSubmit((raw) => {
     const v = schema.parse(raw);
     const ok = run(() => actions.saveProduct({
-      id: product?.id, name: v.name, description: v.description, categoryId: v.categoryId, basePrice: v.basePrice,
-      discountPrice: v.discountPrice ? Number(v.discountPrice) : undefined, active: v.active, flashSale: product?.flashSale,
-      variants: v.variants.map((x) => ({ ...x, price: 0 })),
+      id: product?.id, name: v.name!, description: v.description!, categoryId: v.categoryId!, basePrice: v.basePrice!,
+      discountPrice: v.discountPrice ? Number(v.discountPrice) : undefined, active: !!v.active, flashSale: product?.flashSale,
+      variants: v.variants!.map((x) => ({ id: x.id!, name: x.name!, sku: x.sku!, stock: x.stock!, price: 0 })),
     }), "Produk disimpan");
     if (ok) navigate({ to: "/seller/produk" });
   });
